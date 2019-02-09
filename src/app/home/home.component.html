@@ -1,0 +1,41 @@
+<html>
+
+<head>
+
+
+</head>
+
+<body>  
+    <table style="width:80%; text-align:center">
+        <tr>
+          <th>ID RESPONSABLE </th>
+          <th>NOMBRE </th>
+          <th>CORREO </th>
+          <th>TELEFONO </th>
+          
+        </tr>
+        <tr *ngFor="let resp of responsables">
+          <th >{{resp.Id}} </th>
+          <th>{{resp.Nombre}} </th>
+          <th>{{resp.Correo}} </th>
+          <th>{{resp.Telefono}} </th>
+          <th><button (click)="borrarResponsable(resp.Id)"> borrar</button></th>
+        </tr>
+  </table>
+
+<button (click)="getCLiente()">
+  Obtener responsable
+</button>
+<div style="padding-top:20px">
+    <input [(ngModel)]="id" name="id" class="number" type="number" placeholder="id" required> 
+    <input [(ngModel)]="nombre" name="nombre" class="txt" type="text" placeholder="Nombre" required>
+    <input [(ngModel)]="correo" name="correo" class="txt" type="text" placeholder="Correo" required>
+    <input [(ngModel)]="telefono" name="telefono" class="number" type="number" placeholder="telefono" required> <br>
+    <button (click)="agregarResponsable(id,nombre,correo,telefono)"> Agregar responsable</button>
+</div>
+<div>
+  <button (click)="updateResponsable(id,nombre,correo,telefono)">Actualizar Datos</button>
+</div>
+</body>
+</html>
+

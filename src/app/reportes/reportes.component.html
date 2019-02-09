@@ -1,0 +1,43 @@
+<html>
+
+<head>
+
+
+</head>
+
+<body>  
+    <table style="width:80%; text-align:center">
+        <tr>
+          <th>ID ACTIVIDAD </th>
+          <th>DESCRIPCION </th>
+          <th>FECHA REGISTRO </th>
+          <th>FECHA LIMITE </th>
+          <th>SOPORTE </th>
+          <th>ESTADO</th>
+          <th>RESPONSABLE </th>
+          
+        </tr>
+        <tr *ngFor="let rep of reportes">
+          <th >{{rep.Id}} </th>
+          <th>{{rep.Descripcion}} </th>
+          <th>{{rep.FechaRegistro}} </th>
+          <th>{{rep.FechaLimite}} </th>
+          <th>{{rep.Soporte}} </th>
+          <th>{{rep.Estado.Tipo}} </th>
+          <th>{{rep.Responsable.Nombre}} </th>
+        </tr>
+  </table>
+    <div style="padding-top: 20px;">
+        <input [(ngModel)]="idE" name="id" class="number" type="number" placeholder="id Estado" required> <br>
+        <button (click)="getReportesEstado(idE)">
+           Generar Reportes por Estado
+        </button>
+    </div>
+    <div style="padding-top: 20px;">
+        <input [(ngModel)]="id" name="idResponsable" class="number" type="number" placeholder="id Responsable" required> <br>
+        <button (click)="getReportesResponsable(id)">
+           Generar Reportes por Responsable
+        </button>
+    </div>
+</body>
+</html>

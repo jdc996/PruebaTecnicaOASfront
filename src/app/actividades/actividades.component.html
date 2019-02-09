@@ -1,0 +1,51 @@
+<html>
+
+<head>
+
+
+</head>
+
+<body>  
+    <table style="width:80%; text-align:center">
+        <tr>
+          <th>ID ACTIVIDAD </th>
+          <th>DESCRIPCION </th>
+          <th>FECHA REGISTRO </th>
+          <th>FECHA LIMITE </th>
+          <th>SOPORTE </th>
+          <th>ESTADO</th>
+          <th>RESPONSABLE </th>
+          
+        </tr>
+        <tr *ngFor="let act of actividades">
+          <th >{{act.Id}} </th>
+          <th>{{act.Descripcion}} </th>
+          <th>{{act.FechaRegistro}} </th>
+          <th>{{act.FechaLimite}} </th>
+          <th>{{act.Soporte}} </th>
+          <th>{{act.Estado.Tipo}} </th>
+          <th>{{act.Responsable.Nombre}} </th>
+          <th><button (click)="deleteActividad(act.Id)"> borrar</button></th>
+        </tr>
+  </table>
+
+<button (click)="getActividades()">
+  Obtener Actividades
+</button>
+<div style="padding-top:20px">
+    <input [(ngModel)]="id" name="id" class="number" type="number" placeholder="id" required> 
+    <input [(ngModel)]="descripcion" name="descripcion" class="txt" type="text" placeholder="descripcion" required>
+    <input [(ngModel)]="fechaRegistro" name="fechaRegistro" class="txt" type="date" placeholder="fecha registro" required>
+    <input [(ngModel)]="fechaLimite" name="fechaLimite" class="date" type="date" placeholder="fecha limite" required>
+    <input [(ngModel)]="soporte" name="soporte" class="txt" type="txt" placeholder="soporte" required> 
+    <input [(ngModel)]="estado" name="estado" class="number" type="number" placeholder="Estado id" required> 
+    <input [(ngModel)]="responsable" name="responsable" class="number" type="number" placeholder="Responsable id" required> <br>
+    
+</div>
+<div style="padding-top:20px">
+  <button (click)="agregarActividad(id,descripcion,fechaRegistro,fechaLimite,soporte,estado,responsable)"> Agregar Actividad</button>
+  <button (click)="updateActividad(id,descripcion,fechaRegistro,fechaLimite,soporte,estado,responsable)">Actualizar Datos</button>
+</div>
+</body>
+</html>
+
